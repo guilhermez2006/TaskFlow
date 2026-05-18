@@ -1,0 +1,24 @@
+{
+  "name": "dock-server",
+  "version": "1.0.0",
+  "description": "API Back-end desenvolvida com Node.js, PostgreSQL e Docker, utilizando arquitetura MVC e Sequelize ORM",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilhermez2006/dock-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/guilhermez2006/dock-server/issues"
+  },
+  "homepage": "https://github.com/guilhermez2006/dock-server#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
