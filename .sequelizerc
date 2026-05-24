@@ -1,0 +1,10 @@
+const { resolve } = require("node:path"); // Importa a ferramenta do Node para organizar caminhos de pastas
+
+module.exports = {
+  // Aponta onde está o arquivo de configuração e conexão com o banco de dados
+  config: resolve(__dirname, "src", "config", "database.js"),
+  // Aponta a pasta onde vão ficar os arquivos de criação das tabelas (histórico do banco)
+  "migrations-path": resolve(__dirname, "src", "database", "migrations"),
+  // Aponta a pasta onde vão ficar as estruturas e regras de cada tabela (os Modelos)
+  "models-path": resolve(__dirname, "src", "models"),
+};
