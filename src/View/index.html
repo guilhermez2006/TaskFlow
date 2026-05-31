@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowTask — Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos locais -->
+    <link rel="stylesheet" href="css/syle.css" />
+  </head>
+  <body>
+    <!-- Main Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <span class="brand-icon" aria-hidden="true">◈</span>
+        <span class="brand-name">FlowTask</span>
+      </div>
+
+      <div class="header-actions">
+        <button
+          class="btn btn-primary"
+          id="btn-new-card"
+          aria-label="Criar novo card"
+        >
+          <span aria-hidden="true">+</span> Novo Card
+        </button>
+
+        <button class="theme-toggle" id="btn-theme" aria-label="Alternar tema">
+          <span class="theme-icon" id="theme-icon">☀</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Kanban Board Workspace -->
+    <main class="board-wrapper" role="main">
+      <section class="column" id="col-todo" aria-label="Coluna A Fazer">
+        <div class="column-header">
+          <div class="column-title-group">
+            <span class="column-dot dot-todo" aria-hidden="true"></span>
+            <h2 class="column-title">A Fazer</h2>
+          </div>
+          <span class="column-count" id="count-todo" aria-live="polite">0</span>
+        </div>
+
+        <div class="card-list" id="list-todo" role="list"></div>
+
+        <button
+          class="btn-add-inline"
+          data-column="todo"
+          aria-label="Adicionar card em A Fazer"
+        >
+          <span aria-hidden="true">+</span> Adicionar card
+        </button>
+      </section>
+
+      <section class="column" id="col-doing" aria-label="Coluna Em Andamento">
+        <div class="column-header">
+          <div class="column-title-group">
+            <span class="column-dot dot-doing" aria-hidden="true"></span>
+            <h2 class="column-title">Em Andamento</h2>
+          </div>
+          <span class="column-count" id="count-doing" aria-live="polite"
+            >0</span
+          >
+        </div>
+        <div class="card-list" id="list-doing" role="list"></div>
+        <button
+          class="btn-add-inline"
+          data-column="doing"
+          aria-label="Adicionar card em Em Andamento"
+        >
+          <span aria-hidden="true">+</span> Adicionar card
+        </button>
+      </section>
+
+      <section class="column" id="col-done" aria-label="Coluna Concluído">
+        <div class="column-header">
+          <div class="column-title-group">
+            <span class="column-dot dot-done" aria-hidden="true"></span>
+            <h2 class="column-title">Concluído</h2>
+          </div>
+          <span class="column-count" id="count-done" aria-live="polite">0</span>
+        </div>
+        <div class="card-list" id="list-done" role="list"></div>
+        <button
+          class="btn-add-inline"
+          data-column="done"
+          aria-label="Adicionar card em Concluído"
+        >
+          <span aria-hidden="true">+</span> Adicionar card
+        </button>
+      </section>
+    </main>
+
+    <!-- Task Management Modal -->
+    <div
+      class="modal-overlay"
+      id="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      hidden
+    >
+      <div class="modal">
+        <div class="modal-header">
+          <h3 class="modal-title" id="modal-title">Novo Card</h3>
+          <button
+            class="modal-close"
+            id="modal-close"
+            aria-label="Fechar modal"
+          >
+            ✕
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="input-title"
+              >Título <span aria-hidden="true">*</span></label
+            >
+            <input
+              class="form-input"
+              type="text"
+              id="input-title"
+              placeholder="Ex.: Criar tela de login"
+              maxlength="80"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="input-desc">Descrição</label>
+            <textarea
+              class="form-input form-textarea"
+              id="input-desc"
+              placeholder="Descreva brevemente o que precisa ser feito..."
+              rows="3"
+              maxlength="200"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="input-column">Coluna</label>
+            <select class="form-input form-select" id="input-column">
+              <option value="todo">A Fazer</option>
+              <option value="doing">Em Andamento</option>
+              <option value="done">Concluído</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-ghost" id="btn-cancel">Cancelar</button>
+          <button class="btn btn-primary" id="btn-save">Salvar Card</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
