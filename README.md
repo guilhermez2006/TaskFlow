@@ -1,4 +1,4 @@
-# Dock Server API 🐳
+# TaskFlow 📋
 
 API REST construída com o propósito de **estudo e desenvolvimento prático** de conhecimentos em **Docker, PostgreSQL, ORM (Sequelize), Arquitetura MVC e JWT**. O sistema gerencia o cadastro e fluxo de usuários, utilizando autenticação via tokens para proteger rotas e garantir a segurança dos dados.
 
