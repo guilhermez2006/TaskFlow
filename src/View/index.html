@@ -13,6 +13,7 @@
 
     <!-- Estilos locais -->
     <link rel="stylesheet" href="css/syle.css" />
+    <link rel="stylesheet" href="css/responsiveness.css">
   </head>
   <body>
     <!-- Main Header -->
@@ -36,66 +37,88 @@
         </button>
       </div>
     </header>
-
-    <!-- Kanban Board Workspace -->
-    <main class="board-wrapper" role="main">
-      <section class="column" id="col-todo" aria-label="Coluna A Fazer">
-        <div class="column-header">
-          <div class="column-title-group">
-            <span class="column-dot dot-todo" aria-hidden="true"></span>
-            <h2 class="column-title">A Fazer</h2>
-          </div>
-          <span class="column-count" id="count-todo" aria-live="polite">0</span>
-        </div>
-
-        <div class="card-list" id="list-todo" role="list"></div>
-
-        <button
-          class="btn-add-inline"
-          data-column="todo"
-          aria-label="Adicionar card em A Fazer"
-        >
-          <span aria-hidden="true">+</span> Adicionar card
-        </button>
-      </section>
-
-      <section class="column" id="col-doing" aria-label="Coluna Em Andamento">
-        <div class="column-header">
-          <div class="column-title-group">
-            <span class="column-dot dot-doing" aria-hidden="true"></span>
-            <h2 class="column-title">Em Andamento</h2>
-          </div>
-          <span class="column-count" id="count-doing" aria-live="polite"
-            >0</span
+    <main class="workspace-container" role="main">
+      <!-- Toolbar Superior do Board (Intencional e Limpa) -->
+      <div class="board-toolbar">
+        <div class="toolbar-search">
+          <svg
+            class="search-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
           >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="text"
+            id="input-search"
+            placeholder="Filtrar tarefas..."
+            class="search-input"
+          />
         </div>
-        <div class="card-list" id="list-doing" role="list"></div>
-        <button
-          class="btn-add-inline"
-          data-column="doing"
-          aria-label="Adicionar card em Em Andamento"
-        >
-          <span aria-hidden="true">+</span> Adicionar card
-        </button>
-      </section>
 
-      <section class="column" id="col-done" aria-label="Coluna Concluído">
-        <div class="column-header">
-          <div class="column-title-group">
-            <span class="column-dot dot-done" aria-hidden="true"></span>
-            <h2 class="column-title">Concluído</h2>
-          </div>
-          <span class="column-count" id="count-done" aria-live="polite">0</span>
+        <!-- Filtros Rápidos / Visualização -->
+        <div class="toolbar-filters">
+          <button class="filter-chip active">Todas</button>
+          <button class="filter-chip">Minhas tarefas</button>
         </div>
-        <div class="card-list" id="list-done" role="list"></div>
-        <button
-          class="btn-add-inline"
-          data-column="done"
-          aria-label="Adicionar card em Concluído"
-        >
-          <span aria-hidden="true">+</span> Adicionar card
-        </button>
-      </section>
+      </div>
+
+      <!-- Grid das Colunas -->
+      <div class="board-wrapper">
+        <!-- Coluna A Fazer -->
+        <section class="column" id="col-todo" aria-label="Coluna A Fazer">
+          <div class="column-header">
+            <div class="column-title-group">
+              <span class="column-dot dot-todo" aria-hidden="true"></span>
+              <h2 class="column-title">A Fazer</h2>
+            </div>
+            <span class="column-count" id="count-todo" aria-live="polite"
+              >0</span
+            >
+          </div>
+          <div class="card-list" id="list-todo" role="list"></div>
+          <button class="btn-add-inline" data-column="todo">
+            <span aria-hidden="true">+</span> Adicionar card
+          </button>
+        </section>
+
+        <!-- Coluna Em Andamento -->
+        <section class="column" id="col-doing" aria-label="Coluna Em Andamento">
+          <div class="column-header">
+            <div class="column-title-group">
+              <span class="column-dot dot-doing" aria-hidden="true"></span>
+              <h2 class="column-title">Em Andamento</h2>
+            </div>
+            <span class="column-count" id="count-doing" aria-live="polite"
+              >0</span
+            >
+          </div>
+          <div class="card-list" id="list-doing" role="list"></div>
+          <button class="btn-add-inline" data-column="doing">
+            <span aria-hidden="true">+</span> Adicionar card
+          </button>
+        </section>
+
+        <!-- Coluna Concluído -->
+        <section class="column" id="col-done" aria-label="Coluna Concluído">
+          <div class="column-header">
+            <div class="column-title-group">
+              <span class="column-dot dot-done" aria-hidden="true"></span>
+              <h2 class="column-title">Concluído</h2>
+            </div>
+            <span class="column-count" id="count-done" aria-live="polite"
+              >0</span
+            >
+          </div>
+          <div class="card-list" id="list-done" role="list"></div>
+          <button class="btn-add-inline" data-column="done">
+            <span aria-hidden="true">+</span> Adicionar card
+          </button>
+        </section>
+      </div>
     </main>
 
     <!-- Task Management Modal -->
